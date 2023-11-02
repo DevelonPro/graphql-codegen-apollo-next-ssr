@@ -178,7 +178,7 @@ export class ApolloNextSSRVisitor extends ClientSideBaseVisitor<
       ? `export const withPage${pageOperation} = (optionsFunc?: (router: NextRouter)=> QueryHookOptions<${operationResultType}, ${operationVariablesTypes}>) => (WrappedComponent:Page${pageOperation}Comp) : NextPage  => (props) => {
                 const router = useRouter()
                 const options = optionsFunc ? optionsFunc(router) : {};
-                const {data, error } = useQuery<${operationResultType}, ${operationVariablesTypes}>(${this.getDocumentNodeVariable(
+                const { data, error } = useQuery<${operationResultType}, ${operationVariablesTypes}>(${this.getDocumentNodeVariable(
                   documentVariableName
                 )}, options)    
                 return <WrappedComponent {...props} data={data} error={error} /> ;
